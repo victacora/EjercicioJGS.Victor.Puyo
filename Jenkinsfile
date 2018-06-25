@@ -27,7 +27,7 @@ pipeline
 				doGenerateSubmoduleConfigurations: false, extensions: [], gitTool:
 				'Git_Centos', submoduleCfg: [], userRemoteConfigs: [[credentialsId:
 				'GitHub_victacora', url:
-				'https://github.com/victacora/EjercicioJGS.Victor.Puyo']]])
+				'https://github.com/victacora/EjercicioJGS.Victor.Puyo.git']]])
 				sh 'gradle --b ./build.gradle compileJava'
 			}
 		}
