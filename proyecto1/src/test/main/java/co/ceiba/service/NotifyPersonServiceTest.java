@@ -5,7 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import oc.ceiba.domain.Person;
+import co.ceiba.domain.Person;
+import co.ceiba.service.EmailService;
+import co.ceiba.service.NotifyPersonService;
 import oc.ceiba.testdatabuilder.PersonTestDataBuilder;
 
 public class NotifyPersonServiceTest {

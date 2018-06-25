@@ -1,6 +1,6 @@
 package oc.ceiba.testdatabuilder;
 
-import oc.ceiba.domain.Person;
+import co.ceiba.domain.Person;
 
 public class PersonTestDataBuilder {
 	private String name;

@@ -1,6 +1,6 @@
-package oc.ceiba.service;
+package co.ceiba.service;
 
-import oc.ceiba.domain.Person;
+import co.ceiba.domain.Person;
 
 public class NotifyPersonService {
 	private EmailService emailService;

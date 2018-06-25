@@ -1,4 +1,4 @@
-package oc.ceiba.service;
+package co.ceiba.service;
 
 public class EmailService {
 

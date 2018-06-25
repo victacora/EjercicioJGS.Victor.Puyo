@@ -1,4 +1,4 @@
-package oc.ceiba.domain;
+package co.ceiba.domain;
 
 public class Person {
 
