@@ -16,9 +16,9 @@ public class NotifyPersonServiceTest {
 
 	@Before
 	public void setup() {
-		// emailService = new EmailService();
-		emailService = Mockito.mock(EmailService.class);
-		Mockito.when(emailService.sendMail(Mockito.anyString())).thenReturn("Hola mundo");
+		emailService = new EmailService();
+		//emailService = Mockito.mock(EmailService.class);
+		//Mockito.when(emailService.sendMail(Mockito.anyString())).thenReturn("Hola mundo");
 		notifyPersonService = new NotifyPersonService(emailService);
 	}
 
@@ -29,7 +29,7 @@ public class NotifyPersonServiceTest {
 		// Act
 		String message = notifyPersonService.notify(person);
 		// Assert
-		System.out.println(message);
+		//System.out.println(message);
 		Assert.assertNotNull(message);
 	}
 }
