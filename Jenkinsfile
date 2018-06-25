@@ -10,7 +10,7 @@ pipeline
 		buildDiscarder(logRotator(numToKeepStr: '3'))
 		//No permitir ejecuciones concurrentes de Pipeline
 		disableConcurrentBuilds()
-	}
+	 }
 	//Una sección que define las herramientas para autoinstalar y poner en la PATH
 	tools {
 		//Preinstalada en la Configuración del Master
@@ -23,18 +23,18 @@ pipeline
 		stage('Checkout') {
 			steps{
 				echo "------------>Checkout<------------"
-				//checkout([$class: 'GitSCM', branches: [[name: '*/master']],
-				//doGenerateSubmoduleConfigurations: false, extensions: [], gitTool:
-				//'Git_Centos', submoduleCfg: [], userRemoteConfigs: [[credentialsId:
-				//'GitHub_victacora', url:
-				//'https://github.com/victacora/Ceiba-Estacionamiento.git']]])
-
+				checkout([$class: 'GitSCM', branches: [[name: '*/master']],
+				doGenerateSubmoduleConfigurations: false, extensions: [], gitTool:
+				'Git_Centos', submoduleCfg: [], userRemoteConfigs: [[credentialsId:
+				'GitHub_victacora', url:
+				'https://github.com/victacora/EjercicioJGS.Victor.Puyo']]])
+				sh 'gradle --b ./build.gradle compileJava'
 			}
 		}
 		stage('Unit Tests') {
 			steps{
 				echo "------------>Unit Tests<------------"
-				sh 'gradle --b ./build.gradle test'
+				sh 'gradle --b ./build.gradle cleanTest test'
 			}
 		}
 		stage('Integration Tests') {
@@ -46,8 +46,7 @@ pipeline
 			steps{
 				echo '------------>Análisis de código estático<------------'
 				withSonarQubeEnv('Sonar') {
-					sh "${tool name: 'SonarScanner',
-					type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner-Dproject.settings=sonar-project.properties"
+					sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
 				}
 			}
 		}
@@ -68,9 +67,7 @@ pipeline
 		}
 		failure {
 			echo 'This will run only if failed'
-			mail (to: 'victor.puyo@ceiba.com.co',subject: "Failed
-			Pipeline:${currentBuild.fullDisplayName}",body: "Something is wrong
-			with ${env.BUILD_URL}")
+			mail (to: 'victor.puyo@ceiba.com.co',subject: "Failed Pipeline:${currentBuild.fullDisplayName}",body: "Something is wrong with ${env.BUILD_URL}")
 		}
 		unstable {
 			echo 'This will run only if the run was marked as unstable'
