@@ -1,4 +1,4 @@
-package oc.ceiba.service;
+package co.ceiba.service;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -8,7 +8,7 @@ import org.mockito.Mockito;
 import co.ceiba.domain.Person;
 import co.ceiba.service.EmailService;
 import co.ceiba.service.NotifyPersonService;
-import oc.ceiba.testdatabuilder.PersonTestDataBuilder;
+import co.ceiba.testdatabuilder.PersonTestDataBuilder;
 
 public class NotifyPersonServiceTest {
 	private NotifyPersonService notifyPersonService;

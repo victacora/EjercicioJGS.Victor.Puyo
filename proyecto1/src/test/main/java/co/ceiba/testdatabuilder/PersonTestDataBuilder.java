@@ -1,4 +1,4 @@
-package oc.ceiba.testdatabuilder;
+package co.ceiba.testdatabuilder;
 
 import co.ceiba.domain.Person;
 
